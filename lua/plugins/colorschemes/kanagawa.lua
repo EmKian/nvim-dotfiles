@@ -1,0 +1,9 @@
+-- local default_colors = require("kanagawa.colors").setup()
+--
+--
+-- local overrides = {
+--     TSError = { link = "Normal"},
+-- }
+--
+-- require("kanagawa").setup({overrides = overrides})
+-- vim.cmd[[colorscheme kanagawa]]
