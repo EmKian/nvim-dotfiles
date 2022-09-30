@@ -221,7 +221,6 @@ return require("packer").startup({ function(use)
     use "fladson/vim-kitty"
 
     -- misc
-    use "dstein64/vim-startuptime"
     use {
         "aserowy/tmux.nvim",
         config = function()
