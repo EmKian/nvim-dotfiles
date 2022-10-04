@@ -44,7 +44,9 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_keymap(0, "n", "gr", "<cmd>Trouble lsp_references<CR>", {} )
     end
     vim.api.nvim_buf_set_keymap(0, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", {} )
+    vim.api.nvim_buf_set_keymap(0, "n", "cn", "<cmd>lua vim.diagnostic.goto_next()<CR>", {} )
     vim.api.nvim_buf_set_keymap(0, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {} )
+    vim.api.nvim_buf_set_keymap(0, "n", "cp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {} )
     vim.api.nvim_buf_set_keymap(0, "n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", {} )
 end
 

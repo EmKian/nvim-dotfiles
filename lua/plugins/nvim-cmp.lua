@@ -18,6 +18,9 @@ cmp.setup {
     completion = {
         keyword_length = 2,
     },
+    window = {
+        -- completion = cmp.config.window.bordered();
+    },
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)

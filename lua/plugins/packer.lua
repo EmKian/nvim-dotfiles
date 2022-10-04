@@ -117,14 +117,14 @@ return require("packer").startup({ function(use)
         { "nvim-treesitter/nvim-treesitter-textobjects", after = 'nvim-treesitter' },
     }
 
-    use {
-        "lewis6991/spellsitter.nvim",
-        config = function()
-            require('spellsitter').setup {
-                enable = true,
-            }
-        end
-    }
+    -- use {
+    --     "lewis6991/spellsitter.nvim",
+    --     config = function()
+    --         require('spellsitter').setup {
+    --             enable = true,
+    --         }
+    --     end
+    -- }
 
     use "andymass/vim-matchup"
 
@@ -164,7 +164,7 @@ return require("packer").startup({ function(use)
 
     use {
         "akinsho/toggleterm.nvim",
-        tag = 'v1.*',
+        tag = '*',
         config = function()
             require("toggleterm").setup {
                 open_mapping = [[<C-\><C-t>]],

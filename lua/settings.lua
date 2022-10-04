@@ -15,6 +15,7 @@ opt.linebreak = true
 opt.number = true
 opt.relativenumber = true
 opt.pumheight = 12
+opt.laststatus = 2
 -----------------------------------------------------------
 -- Neovim Tab and related behaviour
 -----------------------------------------------------------
