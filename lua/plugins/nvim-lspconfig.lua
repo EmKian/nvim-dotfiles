@@ -67,7 +67,7 @@ function PeekDefinition()
   return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
 end
 
-local servers = { "pyright", "bashls", "clangd", "yamlls", "texlab", "jdtls"}
+local servers = { "pyright", "bashls", "clangd", "yamlls", "texlab"}
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup{
         capabilities = capabilities,
