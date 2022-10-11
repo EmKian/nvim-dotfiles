@@ -220,7 +220,9 @@ return require("packer").startup({ function(use)
 
     use "fladson/vim-kitty"
 
-    -- misc
+    ----------
+    -- Misc --
+    ----------
     use {
         "aserowy/tmux.nvim",
         config = function()
@@ -239,9 +241,7 @@ return require("packer").startup({ function(use)
     }
     use "lewis6991/impatient.nvim"
 
-    -- Tex
     use "lervag/vimtex"
-
 end,
 config = {
     max_jobs = 10,
