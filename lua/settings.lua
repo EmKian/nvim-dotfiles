@@ -46,6 +46,17 @@ vim.api.nvim_create_autocmd({"TermOpen"}, {
     group = termInit,
     command = "setlocal norelativenumber",
 })
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    pattern = {"*.tex"},
+    callback = function ()
+        vim.api.nvim_buf_set_keymap(0, "n", "j", "gj", {})
+        vim.api.nvim_buf_set_keymap(0, "n", "k", "gk", {})
+        vim.api.nvim_buf_set_keymap(0, "n", "$", "g$", {})
+        vim.api.nvim_buf_set_keymap(0, "n", "_", "g_", {})
+        vim.api.nvim_buf_set_keymap(0, "n", "0", "g0", {})
+    end
+})
 -----------------------------------------------------------
 -- Neovim Misc
 -----------------------------------------------------------

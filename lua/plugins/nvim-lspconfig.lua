@@ -26,7 +26,7 @@ local handlers =  {
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Bunch of very keybindings
 local on_attach = function(client, bufnr)
@@ -67,7 +67,7 @@ function PeekDefinition()
   return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
 end
 
-local servers = { "pyright", "bashls", "clangd", "yamlls", "texlab"}
+local servers = { "gopls", "pyright", "bashls", "clangd", "yamlls", "texlab"}
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup{
         capabilities = capabilities,
