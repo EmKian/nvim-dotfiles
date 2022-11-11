@@ -65,6 +65,7 @@ o.incsearch = true
 o.splitbelow = true
 o.splitright = true
 o.signcolumn = "number"
+o.completeopt = 'menu,menuone,noinsert'
 -----------------------------------------------------------
 -- Neovim colorscheme
 -----------------------------------------------------------
