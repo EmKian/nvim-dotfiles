@@ -74,5 +74,3 @@ g.gruvbox_flat_style = "dark"
 g.gruvbox_material_show_eob = 0
 
 cmd[[colorscheme kanagawa]]
-
-

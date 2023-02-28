@@ -43,15 +43,15 @@ require('telescope').setup{
             case_mode = "smart_case",
         },
         file_browser = {
-            theme = "ivy",
+            -- theme = "ivy",
             hidden = "true",
             mappings = {
                 ["i"] = {
                     ["<C-a>"] = fb_actions.create,
                 },
-                ["n"] = {
-                    ["a"] = fb_actions.create,
-                },
+                -- ["n"] = {
+                --     ["a"] = fb_actions.create,
+                -- },
             }
         }
     }

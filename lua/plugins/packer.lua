@@ -9,8 +9,7 @@ return require("packer").startup({ function(use)
     use "wbthomason/packer.nvim"
 
     -----------------------
-    -- Essential Plugins --
-    -----------------------
+    -- Essential Plugins -- ---------------------
 
     use "nvim-lua/plenary.nvim"
 
@@ -66,6 +65,8 @@ return require("packer").startup({ function(use)
     -- LSP, Completions and Snippets --
     -----------------------------------
 
+    use "williamboman/mason-lspconfig.nvim"
+    use "williamboman/mason.nvim"
     use "neovim/nvim-lspconfig"
 
     use "glepnir/lspsaga.nvim"
@@ -104,6 +105,9 @@ return require("packer").startup({ function(use)
         end
     }
 
+    use "mfussenegger/nvim-dap"
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use "hkupty/iron.nvim"
     --------------------------
     -- Treesitter & Plugins --
     --------------------------
@@ -165,16 +169,6 @@ return require("packer").startup({ function(use)
     use {
         "akinsho/toggleterm.nvim",
         tag = '*',
-        config = function()
-            require("toggleterm").setup {
-                open_mapping = [[<C-\><C-t>]],
-                hide_number = true,
-                direction = 'horizontal',
-                float_opts = {
-                    border = 'curved'
-                }
-            }
-        end,
     }
 
     use {

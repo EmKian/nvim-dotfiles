@@ -7,10 +7,10 @@ local list = {
 
 require('nvim-tree').setup {
     open_on_setup = false,
-    update_cwd = true,
     hijack_cursor = true,
     respect_buf_cwd = true,
     view = {
+        side = "right",
         width = 25,
         mappings = {
             custom_only = false,

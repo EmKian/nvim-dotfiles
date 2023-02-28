@@ -1,5 +1,4 @@
 -- loading various plugins
-local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
 local border = {
       {"🭽", "FloatBorder"},
@@ -12,6 +11,12 @@ local border = {
       {"▏", "FloatBorder"},
 }
 
+-- luasnip setup
+local luasnip = require 'luasnip'
+luasnip.config.set_config({
+    region_check_events = 'InsertEnter',
+    delete_check_events = 'InsertLeave'
+})
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {

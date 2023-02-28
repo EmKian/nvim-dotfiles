@@ -1,12 +1,3 @@
--- Tweaking diagnostics
-vim.diagnostic.config({
-    float = { border = "single" },
-    severity_sort = false,
-    signs = true,
-    underline = true,
-    update_in_insert = false,
-    virtual_text = true,
-})
 -- Customizing floating windows
 local border = {
       {"🭽", "FloatBorder"},
@@ -19,14 +10,40 @@ local border = {
       {"▏", "FloatBorder"},
 }
 
+-- Mason config for automatically installing the lsp servers
+require('mason').setup({
+    ui = {
+        border = "rounded"
+    },
+    ensure_installed = {
+        "rust-analyzer"
+    }
+})
+require('mason-lspconfig').setup({
+})
+
+-- Tweaking diagnostics
+vim.diagnostic.config({
+    severity_sort = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    virtual_text = true,
+    float = {
+        focusable = false,
+        style = "minimal",
+        border = border,
+        source = "always",
+    }
+})
+
 local handlers =  {
   ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
   ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
 }
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Bunch of very keybindings
 local on_attach = function(client, bufnr)
@@ -67,7 +84,7 @@ function PeekDefinition()
   return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
 end
 
-local servers = { "gopls", "pyright", "bashls", "clangd", "yamlls", "texlab", "emmet_ls", "cssls", "html"}
+local servers = { "gopls", "tsserver", "pyright", "bashls", "clangd", "yamlls", "texlab", "emmet_ls", "cssls", "html"}
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup{
         capabilities = capabilities,
@@ -77,7 +94,7 @@ for _, lsp in pairs(servers) do
 end
 
 
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
         capabilities = capabilities,
         on_attach = on_attach,
         handlers = handlers,
@@ -90,7 +107,9 @@ require'lspconfig'.sumneko_lua.setup {
                     globals = { 'vim' },
                 },
                 workspace = {
+                    library = {
                     library = vim.api.nvim_get_runtime_file("", true),
+                    }
                 },
             },
         }
@@ -112,3 +131,4 @@ require'lspconfig'.rust_analyzer.setup {
             }
         }
 }
+
